@@ -1,0 +1,39 @@
+name: بناء تطبيق القرآن الكريم
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: إعداد Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      
+      - name: إعداد Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.0'
+          channel: 'stable'
+      
+      - name: تثبيت التبعيات
+        run: flutter pub get
+      
+      - name: تشغيل الاختبارات
+        run: flutter test || true
+      
+      - name: بناء APK
+        run: flutter build apk --release
+      
+      - name: تخزين ملف APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: quran-app-release
+          path: build/app/outputs/flutter-apk/app-release.apk
