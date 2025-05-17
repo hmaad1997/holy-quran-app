@@ -1,0 +1,42 @@
+name: quran_app
+description: تطبيق القرآن الكريم - تطبيق احترافي للقراءة والاستماع
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  http: ^0.13.5
+  provider: ^6.0.5
+  shared_preferences: ^2.1.0
+  path_provider: ^2.0.14
+  flutter_qiblah: ^2.1.0
+  adhan: ^2.0.0-nullsafety.2
+  quran: ^1.2.2
+  audio_service: ^0.18.9
+  just_audio: ^0.9.32
+  flutter_local_notifications: ^13.0.0
+  intl: ^0.18.0
+  geolocator: ^9.0.2
+  flutter_svg: ^2.0.5
+  sqflite: ^2.2.8+4
+  google_fonts: ^4.0.4
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/audio/
+    - assets/quran_text/
